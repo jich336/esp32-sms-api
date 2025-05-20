@@ -1,0 +1,24 @@
+{
+  "name": "esp32-sms-api",
+  "version": "1.0.0",
+  "description": "API para enviar datos desde una web a ESP32 y reenviar por SMS con SIM900",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "esp32",
+    "sms",
+    "iot",
+    "sim900",
+    "nodejs",
+    "express"
+  ],
+  "author": "Nacho",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
