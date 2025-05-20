@@ -20,7 +20,7 @@
       const numero = document.getElementById('numero').value;
       const mensaje = document.getElementById('mensaje').value;
 
-      await fetch('https://TU_SERVIDOR_RENDER.onrender.com/api/enviar', {
+      await fetch('https://esp32-sms-api.onrender.com/api/enviar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ numero, mensaje })
