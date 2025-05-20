@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enviar SMS desde ESP32</title>
+</head>
+<body>
+  <h1>Enviar SMS</h1>
+  <form id="smsForm">
+    <input type="text" id="numero" placeholder="Número de teléfono" required><br>
+    <textarea id="mensaje" placeholder="Escribe el mensaje" required></textarea><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('smsForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const numero = document.getElementById('numero').value;
+      const mensaje = document.getElementById('mensaje').value;
+
+      await fetch('https://TU_SERVIDOR_RENDER.onrender.com/api/enviar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ numero, mensaje })
+      });
+
+      alert("Mensaje enviado al ESP32");
+    });
+  </script>
+</body>
+</html>
