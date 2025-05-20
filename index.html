@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,18 +14,29 @@
 
   <script>
     const form = document.getElementById('smsForm');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const numero = document.getElementById('numero').value;
       const mensaje = document.getElementById('mensaje').value;
 
-      await fetch('https://esp32-sms-api.onrender.com/api/enviar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ numero, mensaje })
-      });
+      console.log("Enviando datos:", numero, mensaje);
 
-      alert("Mensaje enviado al ESP32");
+      try {
+        const response = await fetch('https://TU_RENDER.onrender.com/api/enviar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ numero, mensaje })
+        });
+
+        const data = await response.json();
+        console.log("Respuesta del servidor:", data);
+
+        alert("Mensaje enviado al servidor.");
+      } catch (err) {
+        console.error("Error al enviar:", err);
+        alert("No se pudo enviar el mensaje.");
+      }
     });
   </script>
 </body>
